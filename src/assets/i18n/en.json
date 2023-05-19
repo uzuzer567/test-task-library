@@ -1,0 +1,34 @@
+{
+  "title": "Library",
+  "bookList": {
+    "bookCreating": {
+      "title": "Book creating",
+      "create": "Create book",
+      "inputTitle": "Input book title",
+      "inputAuthor": "Select book author",
+      "inputDescription": "Input book description",
+      "inputNumberOfPages": "Input number of pages",
+      "inputLanguage": "Select language",
+      "inputGenre": "Input genre",
+      "actions": {
+        "create": "Create",
+        "cancel": "Cancel"
+      }
+    },
+    "bookViewing": {
+      "title": "Book viewing",
+      "actions": {
+        "cancel": "Cancel"
+      }
+    }
+  },
+  "bookCard": {
+    "title": "Book title",
+    "description": "Book description",
+    "author": "Book author",
+    "numberOfPages": "Number of pages in book",
+    "language": "Book language",
+    "genre": "Book genre",
+    "notSelected": "Book not selected"
+  }
+}

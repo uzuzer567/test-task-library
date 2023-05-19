@@ -1,0 +1,19 @@
+:host {
+    width: 58%;
+    .creating-card {
+        padding: 20px 0 30px;
+        &__form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        &__field {
+            margin-bottom: 5px;
+        }
+
+        .description {
+            width: 96%;
+        }
+    }
+}

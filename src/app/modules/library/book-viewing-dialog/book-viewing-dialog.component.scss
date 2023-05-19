@@ -1,0 +1,15 @@
+.book {
+    padding-bottom: 5px;
+    &__info-item {
+        padding-bottom: 10px;
+        font-size: 20px;
+        font-weight: 300;
+        span {
+            font-weight: 400;
+        }
+    }
+
+    .not-selected {
+        text-align: center;
+    }
+}

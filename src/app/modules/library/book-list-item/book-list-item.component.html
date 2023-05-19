@@ -1,0 +1,34 @@
+<div (click)="onSelectBook()">
+    <div class="book">
+        <div class="book__info-item">
+          <span>
+              {{ 'bookCard.title' | translate }}:
+          </span>
+          {{ book?.title }}
+        </div>
+        <div class="book__info-item">
+          <span>
+              {{ 'bookCard.author' | translate }}:
+          </span>
+          {{ book.author?.fullName }}
+        </div>
+        <div class="book__info-item">
+          <span>
+              {{ 'bookCard.numberOfPages' | translate }}:
+          </span>
+          {{ book?.numberOfPages }}
+        </div>
+        <div class="book__info-item">
+          <span>
+              {{ 'bookCard.language' | translate }}:
+          </span>
+          {{ book?.language }}
+        </div>
+        <div class="book__info-item">
+          <span>
+              {{ 'bookCard.genre' | translate }}:
+          </span>
+          {{ book?.genre }}
+        </div>
+    </div>
+</div>

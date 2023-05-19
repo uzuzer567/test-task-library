@@ -1,0 +1,14 @@
+.library {
+    padding: 30px;
+    &__title {
+        font-size: 32px;
+        text-align: center;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: 20px 0;
+    }
+}

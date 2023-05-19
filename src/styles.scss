@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    margin: 0;
+}
+  
+.mat-button {
+    font-family: 'Yanone Kaffeesatz', sans-serif !important;
+    border: 1px solid black !important;
+}
+  
+.mat-select,
+.mat-option,
+.mat-form-field {
+    font-family: 'Yanone Kaffeesatz', sans-serif !important;
+}
+  
+.mat-dialog-title {
+    font-family: 'Yanone Kaffeesatz', sans-serif !important;
+    text-align: center;
+}
+  
+.mat-dialog-actions {
+    justify-content: center;
+}

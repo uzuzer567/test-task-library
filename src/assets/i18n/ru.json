@@ -1,0 +1,34 @@
+{
+  "title": "Библиотека",
+  "bookList": {
+    "bookCreating": {
+      "title": "Создание книги",
+      "create": "Создать книгу",
+      "inputTitle": "Введите название книги",
+      "inputAuthor": "Выберите автора книги",
+      "inputDescription": "Введите описание книги",
+      "inputNumberOfPages": "Введите число страниц в книге",
+      "inputLanguage": "Выберите язык книги",
+      "inputGenre": "Введите жанр книги",
+      "actions": {
+        "create": "Создать",
+        "cancel": "Отмена"
+      }
+    },
+    "bookViewing": {
+      "title": "Просмотр книги",
+      "actions": {
+        "cancel": "Отмена"
+      }
+    }
+  },
+  "bookCard": {
+    "title": "Название книги",
+    "description": "Описание книги",
+    "author": "Автор книги",
+    "numberOfPages": "Число страниц в книге",
+    "language": "Язык книги",
+    "genre": "Жанр книги",
+    "notSelected": "Книга не выбрана"
+  }
+}

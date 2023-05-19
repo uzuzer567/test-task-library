@@ -1,0 +1,51 @@
+<h1 mat-dialog-title>
+    {{ 'bookList.bookViewing.title' | translate }}
+</h1>
+<div mat-dialog-content>
+    <div class="book">
+        <div class="book__info">
+            <div class="book__info-item">
+                <span>
+                    {{ 'bookCard.title' | translate }}:
+                </span>
+                {{ book?.title }}
+            </div>
+            <div class="book__info-item">
+                <span>
+                    {{ 'bookCard.author' | translate }}:
+                </span>
+                {{ book?.author?.fullName }}
+            </div>
+            <div class="book__info-item">
+                <span>
+                    {{ 'bookCard.numberOfPages' | translate }}:
+                </span>
+                {{ book?.numberOfPages }}
+            </div>
+            <div class="book__info-item">
+                <span>
+                    {{ 'bookCard.language' | translate }}:
+                </span>
+                {{ book?.language }}
+            </div>          
+            <div class="book__info-item">
+                <span>
+                    {{ 'bookCard.genre' | translate }}:
+                </span>
+                {{ book?.genre }}
+            </div>
+            <div class="book__info-item">
+                <span>
+                    {{ 'bookCard.description' | translate }}:
+                </span>
+                {{ book?.description }}
+            </div>
+        </div>
+    </div>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onCancel()">
+      {{ 'bookList.bookViewing.actions.cancel' | translate }}
+    </button>
+</div>
+  

@@ -1,0 +1,59 @@
+<h1 mat-dialog-title>
+  {{ 'bookList.bookCreating.title' | translate }}
+</h1>
+<div mat-dialog-content>
+    <form class="creating-card" [formGroup]="form">
+        <div class="creating-card__form">
+            <mat-form-field class="creating-card__field">
+                <mat-label>
+                  {{ 'bookList.bookCreating.inputTitle' | translate }}
+                </mat-label>
+                <input matInput formControlName="title">
+            </mat-form-field>
+          
+            <mat-form-field class="creating-card__field">
+                <mat-label>
+                  {{ 'bookList.bookCreating.inputAuthor' | translate }}
+                </mat-label>
+                <mat-select formControlName="author">
+                  <mat-option *ngFor="let author of authors" [value]="author.fullName">
+                    {{ author.fullName }}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+          
+            <mat-form-field class="creating-card__field">
+                <mat-label>
+                  {{ 'bookList.bookCreating.inputLanguage' | translate }}
+                </mat-label>
+                <mat-select formControlName="language">
+                  <mat-option *ngFor="let language of getLanguages()" [value]="language">
+                    {{ language }}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+    
+            <mat-form-field class="creating-card__field">
+                <mat-label>
+                  {{ 'bookList.bookCreating.inputNumberOfPages' | translate }}
+                </mat-label>
+                <input matInput formControlName="numberOfPages">
+            </mat-form-field>
+    
+            <mat-form-field class="creating-card__field description">
+                <mat-label>
+                  {{ 'bookList.bookCreating.inputDescription' | translate }}
+                </mat-label>
+                <textarea matInput formControlName="description"></textarea>
+            </mat-form-field>
+        </div>
+    </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCreateBook()">
+    {{ 'bookList.bookCreating.actions.create' | translate }}
+  </button>
+  <button mat-button (click)="onCancel()">
+    {{ 'bookList.bookCreating.actions.cancel' | translate }}
+  </button>
+</div>
