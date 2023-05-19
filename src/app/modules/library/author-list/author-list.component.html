@@ -1,0 +1,8 @@
+<button mat-button class="authors__button" (click)="onCreateAuthor()">
+    {{ 'authorList.authorCreating.create' | translate }}
+</button>
+<div class="authors">
+    <div *ngFor="let author of authors">
+        <app-author-list-item [author]="author"></app-author-list-item>
+      </div>
+</div>

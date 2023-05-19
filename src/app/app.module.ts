@@ -17,6 +17,10 @@ import { BookViewingDialogComponent } from './modules/library/book-viewing-dialo
 import { LibraryComponent } from './modules/library/library/library.component';
 import { BookCreatingDialogComponent } from './modules/library/book-creating-dialog/book-creating-dialog.component';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
+import { AuthorListComponent } from './modules/library/author-list/author-list.component';
+import { AuthorListItemComponent } from './modules/library/author-list-item/author-list-item.component';
+import { NavigationComponent } from './shared/components/navigation/navigation.component';
+import { AuthorDialogComponent } from './modules/library/author-dialog/author-dialog.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +31,10 @@ import { NotFoundComponent } from './shared/components/not-found/not-found.compo
     LibraryComponent,
     BookCreatingDialogComponent,
     NotFoundComponent,
+    AuthorListComponent,
+    AuthorListItemComponent,
+    NavigationComponent,
+    AuthorDialogComponent,
   ],
   imports: [
     BrowserModule,

@@ -31,8 +31,37 @@
     "genre": "Book genre",
     "notSelected": "Book not selected"
   },
+  "authorList": {
+    "authorCreating": {
+      "title": "Author creating",
+      "inputFullName": "Input author full name",
+      "create": "Create author",
+      "actions": {
+        "creating": "Create",
+        "cancel": "Cancel"
+      }
+    },
+    "authorEditing": {
+      "title": "Author editing",
+      "currentFullName": "* current author full name",
+      "actions": {
+        "editing": "Edit",
+        "cancel": "Cancel"
+      }
+    }
+  },
+  "authorCard": {
+    "name": "Author full name",
+    "actions": {
+      "edit": "Edit"
+    }
+  },
   "notFound": {
     "title": "404 Error",
     "subtitle": "Page not found"
+  },
+  "navigation": {
+    "bookList": "Book list",
+    "authorList": "Author list"
   }
 }

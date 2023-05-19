@@ -56,6 +56,9 @@ export class LibraryApiService {
     {
       fullName: 'Автор',
     },
+    {
+      fullName: 'Автор',
+    },
   ];
   constructor(private http: HttpClient) {}
 
@@ -70,4 +73,8 @@ export class LibraryApiService {
     //return this.http.get<Author[]>(`${environment.apiUrl}/authors`);
     return of(this.authors);
   }
+
+  addAuthor(author: any) {}
+
+  editAuthor(author: any) {}
 }

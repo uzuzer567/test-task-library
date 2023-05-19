@@ -1,0 +1,15 @@
+.author-card {
+    &__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    &__info-item {
+        max-width: 250px;
+        font-weight: 300;
+        span {
+            font-weight: 400;
+        }
+    }
+}

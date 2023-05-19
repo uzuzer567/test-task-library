@@ -31,8 +31,37 @@
     "genre": "Жанр книги",
     "notSelected": "Книга не выбрана"
   },
+  "authorList": {
+    "authorCreating": {
+      "title": "Создание автора",
+      "inputFullName": "Введите полное имя автора",
+      "create": "Создать автора",
+      "actions": {
+        "creating": "Создать",
+        "cancel": "Отмена"
+      }
+    },
+    "authorEditing": {
+      "title": "Редактирование автора",
+      "currentFullName": "* текущее полное имя автора",
+      "actions": {
+        "editing": "Редактировать",
+        "cancel": "Отмена"
+      }
+    }
+  },
+  "authorCard": {
+    "name": "Полное имя автора",
+    "actions": {
+      "edit": "Редактировать"
+    }
+  },
   "notFound": {
     "title": "Ошибка 404",
     "subtitle": "Страница не найдена"
+  },
+  "navigation": {
+    "bookList": "Список книг",
+    "authorList": "Cписок авторов"
   }
 }

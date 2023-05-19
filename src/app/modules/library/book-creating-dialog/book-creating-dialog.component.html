@@ -8,14 +8,14 @@
                 <mat-label>
                   {{ 'bookList.bookCreating.inputTitle' | translate }}
                 </mat-label>
-                <input matInput formControlName="title">
+                <input matInput formControlName="title" required>
             </mat-form-field>
           
             <mat-form-field class="creating-card__field">
                 <mat-label>
                   {{ 'bookList.bookCreating.inputAuthor' | translate }}
                 </mat-label>
-                <mat-select formControlName="author">
+                <mat-select formControlName="author" required>
                   <mat-option *ngFor="let author of authors" [value]="author.fullName">
                     {{ author.fullName }}
                   </mat-option>
@@ -26,7 +26,7 @@
                 <mat-label>
                   {{ 'bookList.bookCreating.inputLanguage' | translate }}
                 </mat-label>
-                <mat-select formControlName="language">
+                <mat-select formControlName="language" required>
                   <mat-option *ngFor="let language of getLanguages()" [value]="language">
                     {{ language }}
                   </mat-option>
@@ -37,14 +37,14 @@
                 <mat-label>
                   {{ 'bookList.bookCreating.inputNumberOfPages' | translate }}
                 </mat-label>
-                <input matInput formControlName="numberOfPages">
+                <input matInput formControlName="numberOfPages" required>
             </mat-form-field>
     
             <mat-form-field class="creating-card__field description">
                 <mat-label>
                   {{ 'bookList.bookCreating.inputDescription' | translate }}
                 </mat-label>
-                <textarea matInput formControlName="description"></textarea>
+                <textarea matInput formControlName="description" required></textarea>
             </mat-form-field>
         </div>
     </form>

@@ -1,0 +1,11 @@
+<div class="author">
+    <div class="author__info-item">
+      <div>
+          {{ 'authorCard.name' | translate }}:
+      </div>
+      {{ author?.fullName }}
+    </div>
+    <button mat-button class="author__button" (click)="editAuthor()">
+        {{ 'authorCard.actions.edit' | translate }}
+    </button>
+</div>
