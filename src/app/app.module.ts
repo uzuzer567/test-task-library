@@ -16,6 +16,7 @@ import { BookListComponent } from './modules/library/book-list/book-list.compone
 import { BookViewingDialogComponent } from './modules/library/book-viewing-dialog/book-viewing-dialog.component';
 import { LibraryComponent } from './modules/library/library/library.component';
 import { BookCreatingDialogComponent } from './modules/library/book-creating-dialog/book-creating-dialog.component';
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { BookCreatingDialogComponent } from './modules/library/book-creating-dia
     BookViewingDialogComponent,
     LibraryComponent,
     BookCreatingDialogComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
