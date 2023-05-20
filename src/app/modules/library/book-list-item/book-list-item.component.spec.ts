@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { MatDialog } from '@angular/material/dialog';
+import { TranslateModule } from '@ngx-translate/core';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { BookListItemComponent } from './book-list-item.component';
 
 describe('BookListItemComponent', () => {
@@ -7,8 +9,10 @@ describe('BookListItemComponent', () => {
   let fixture: ComponentFixture<BookListItemComponent>;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
+    return await TestBed.configureTestingModule({
       declarations: [BookListItemComponent],
+      imports: [HttpClientTestingModule, TranslateModule.forRoot()],
+      providers: [{ provide: MatDialog, useValue: {} }],
     }).compileComponents();
   });
 

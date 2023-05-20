@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { TranslateModule } from '@ngx-translate/core';
+import { MatDialogRef } from '@angular/material/dialog';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { BookCreatingDialogComponent } from './book-creating-dialog.component';
 
 describe('BookCreatingDialogComponent', () => {
@@ -9,6 +11,8 @@ describe('BookCreatingDialogComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [BookCreatingDialogComponent],
+      imports: [HttpClientTestingModule, TranslateModule.forRoot()],
+      providers: [{ provide: MatDialogRef, useValue: {} }],
     }).compileComponents();
   });
 
