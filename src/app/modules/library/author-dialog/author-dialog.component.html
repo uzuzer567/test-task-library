@@ -18,7 +18,7 @@
     </form>
 </div>
 <div mat-dialog-actions>
-    <button mat-button (click)="activeMode === Mode.Editing ? onEditAuthor() : onCreateAuthor()">
+    <button mat-button (click)="onChangeAuthorList()">
       {{ 'authorList.author' + activeMode + '.actions.' + activeMode?.toLowerCase() | translate }}
     </button>
     <button mat-button (click)="onCancel()">

@@ -2,8 +2,24 @@
     {{ 'bookList.bookCreating.create' | translate }}
 </button>
 <app-book-filter></app-book-filter>
-<div class="books">
-    <div *ngFor="let book of filteredBooks">
-        <app-book-list-item [book]="book"></app-book-list-item>
-      </div>
+<div *ngIf="!isLoading; else loader">
+    <div class="books" *ngIf="books?.length">
+        <div *ngFor="let book of filteredBooks">
+            <app-book-list-item [book]="book"></app-book-list-item>
+        </div>
+    </div>
 </div>
+
+<div class="books__message" *ngIf="!isLoading && !books?.length">
+    {{ 'bookList.isEmpty' | translate }}
+</div>
+
+<div class="books__message" *ngIf="books?.length && !filteredBooks?.length">
+    {{ 'bookList.bookFiltering.notFound' | translate }}
+</div>
+
+<ng-template #loader>
+    <div class="loader">
+        <app-loader></app-loader>
+    </div>
+</ng-template>

@@ -1,8 +1,20 @@
 <button mat-button class="authors__button" (click)="onCreateAuthor()">
     {{ 'authorList.authorCreating.create' | translate }}
 </button>
-<div class="authors">
-    <div *ngFor="let author of authors">
-        <app-author-list-item [author]="author"></app-author-list-item>
-      </div>
+<div *ngIf="!isLoading; else loader">
+    <div class="authors" *ngIf="authors?.length">
+        <div *ngFor="let author of authors">
+            <app-author-list-item [author]="author"></app-author-list-item>
+          </div>
+    </div>
 </div>
+
+<div class="authors__message" *ngIf="!isLoading && !authors?.length">
+    {{ 'authorList.isEmpty' | translate }}
+</div>
+
+<ng-template #loader>
+    <div class="loader">
+        <app-loader></app-loader>
+    </div>
+</ng-template>

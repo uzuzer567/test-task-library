@@ -3,7 +3,9 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   OnInit,
+  OnDestroy,
 } from '@angular/core';
+import { Subject, takeUntil, switchMap, startWith, combineLatest } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { Author } from '../../../core/interfaces/author';
 import { Mode } from '../../../core//enums/mode';
@@ -17,8 +19,10 @@ import { AuthorDialogComponent } from '../author-dialog/author-dialog.component'
   styleUrls: ['./author-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AuthorListComponent implements OnInit {
+export class AuthorListComponent implements OnInit, OnDestroy {
+  isLoading = false;
   authors!: Author[];
+  onDestroy$ = new Subject<void>();
   constructor(
     private libraryService: LibraryService,
     private libraryApiService: LibraryApiService,
@@ -27,10 +31,21 @@ export class AuthorListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.libraryApiService.getAuthors().subscribe(authors => {
-      this.authors = authors;
-      this.cdr.markForCheck();
-    });
+    this.libraryService.editedAuthor$
+      .pipe(startWith(null))
+      .pipe(
+        takeUntil(this.onDestroy$),
+        switchMap(_ => {
+          this.isLoading = true;
+          this.cdr.markForCheck();
+          return this.libraryApiService.getAuthors();
+        })
+      )
+      .subscribe(authors => {
+        this.authors = authors;
+        this.isLoading = false;
+        this.cdr.markForCheck();
+      });
   }
 
   onCreateAuthor(): void {
@@ -38,8 +53,15 @@ export class AuthorListComponent implements OnInit {
     const dialogRef = this.dialog.open(AuthorDialogComponent);
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.libraryApiService.addAuthor(result?.data);
+        this.libraryApiService
+          .addAuthor(result?.data)
+          .subscribe(_ => this.libraryService.editedAuthor$.next({}));
       }
     });
+  }
+
+  ngOnDestroy() {
+    this.onDestroy$.next();
+    this.onDestroy$.complete();
   }
 }

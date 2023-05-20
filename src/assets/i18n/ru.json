@@ -1,6 +1,7 @@
 {
   "title": "Библиотека",
   "bookList": {
+    "isEmpty": "Список книг пуст",
     "bookFiltering": {
       "notFound": "Книги не найдены",
       "inputNumberOfPagesFrom": "Введите число страниц в книге (от)",
@@ -37,6 +38,7 @@
     "notSelected": "Книга не выбрана"
   },
   "authorList": {
+    "isEmpty": "Список авторов пуст",
     "authorCreating": {
       "title": "Создание автора",
       "inputFullName": "Введите полное имя автора",

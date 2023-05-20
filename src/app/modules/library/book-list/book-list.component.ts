@@ -1,9 +1,11 @@
 import {
   Component,
   OnInit,
+  OnDestroy,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
 } from '@angular/core';
+import { Subject, takeUntil, switchMap, startWith } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { Book } from '../../../core/interfaces/book';
 import { LibraryService } from '../../../core/services/library.service';
@@ -18,9 +20,12 @@ import { FilterCriterion } from 'src/app/core/interfaces/filter-criterion';
   styleUrls: ['./book-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BookListComponent implements OnInit {
+export class BookListComponent implements OnInit, OnDestroy {
+  isLoading = false;
   books!: Book[];
   filteredBooks!: Book[];
+  reload$ = new Subject<void>();
+  onDestroy$ = new Subject<void>();
   constructor(
     private bookFilterService: BookFilterService,
     private libraryService: LibraryService,
@@ -30,11 +35,22 @@ export class BookListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.libraryApiService.getBooks().subscribe(books => {
-      this.books = books;
-      this.filteredBooks = books;
-      this.cdr.markForCheck();
-    });
+    this.reload$
+      .pipe(startWith(null))
+      .pipe(
+        takeUntil(this.onDestroy$),
+        switchMap(_ => {
+          this.isLoading = true;
+          this.cdr.markForCheck();
+          return this.libraryApiService.getBooks();
+        })
+      )
+      .subscribe(books => {
+        this.books = books;
+        this.filteredBooks = books;
+        this.isLoading = false;
+        this.cdr.markForCheck();
+      });
 
     this.libraryService.activeBookFilter$.subscribe(activeFilter => {
       this.filterBooks(activeFilter);
@@ -46,7 +62,9 @@ export class BookListComponent implements OnInit {
     const dialogRef = this.dialog.open(BookCreatingDialogComponent);
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.libraryApiService.addBook(result?.data);
+        this.libraryApiService
+          .addBook(result?.data)
+          .subscribe(_ => this.reload$.next());
       }
     });
   }
@@ -56,5 +74,10 @@ export class BookListComponent implements OnInit {
       this.books,
       criteria
     );
+  }
+
+  ngOnDestroy() {
+    this.onDestroy$.next();
+    this.onDestroy$.complete();
   }
 }

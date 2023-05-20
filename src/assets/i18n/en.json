@@ -1,6 +1,7 @@
 {
   "title": "Library",
   "bookList": {
+    "isEmpty": "List of books is empty",
     "bookFiltering": {
       "notFound": "Books not found",
       "inputNumberOfPagesFrom": "Input number of pages (from)",
@@ -37,6 +38,7 @@
     "notSelected": "Book not selected"
   },
   "authorList": {
+    "isEmpty": "List of authors is empty",
     "authorCreating": {
       "title": "Author creating",
       "inputFullName": "Input author full name",

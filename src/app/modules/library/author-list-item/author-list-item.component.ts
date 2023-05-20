@@ -27,7 +27,14 @@ export class AuthorListItemComponent {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.libraryApiService.editAuthor(result?.data);
+        this.libraryApiService
+          .editAuthor({ id: this.author.id, fullName: result?.data.fullName })
+          .subscribe(_ =>
+            this.libraryService.editedAuthor$.next({
+              previousValue: this.author.fullName,
+              currentValue: result?.data.fullName,
+            })
+          );
       }
     });
   }
