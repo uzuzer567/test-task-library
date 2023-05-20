@@ -12,7 +12,7 @@ import { LibraryService } from '../../../core/services/library.service';
 import { BookFilterService } from '../../../core/services/book-filter.service';
 import { LibraryApiService } from '../../../core/services/library-api.service';
 import { BookCreatingDialogComponent } from '../book-creating-dialog/book-creating-dialog.component';
-import { FilterCriterion } from 'src/app/core/interfaces/filter-criterion';
+import { FilterCriterion } from '../../../core/interfaces/filter-criterion';
 
 @Component({
   selector: 'app-book-list',
