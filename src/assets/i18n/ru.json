@@ -1,6 +1,11 @@
 {
   "title": "Библиотека",
   "bookList": {
+    "bookFiltering": {
+      "notFound": "Книги не найдены",
+      "inputNumberOfPagesFrom": "Введите число страниц в книге (от)",
+      "inputNumberOfPagesTo": "Введите число страниц в книге (до)"
+    },
     "bookCreating": {
       "title": "Создание книги",
       "create": "Создать книгу",

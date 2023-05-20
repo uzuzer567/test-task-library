@@ -1,0 +1,47 @@
+<form class="filter" [formGroup]="form">
+    <div class="filter__form">
+        <mat-form-field class="filter__field">
+            <mat-label>
+              {{ 'bookList.bookCreating.inputTitle' | translate }}
+            </mat-label>
+            <input matInput formControlName="title" (keyup)="onFilterBooks()">
+        </mat-form-field>
+      
+        <mat-form-field class="filter__field">
+            <mat-label>
+              {{ 'bookList.bookCreating.inputAuthor' | translate }}
+            </mat-label>
+            <mat-select formControlName="author" multiple (selectionChange)="onFilterBooks()">
+              <mat-option *ngFor="let author of authors" [value]="author.fullName">
+                {{ author.fullName }}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+      
+        <mat-form-field class="filter__field">
+            <mat-label>
+              {{ 'bookList.bookCreating.inputLanguage' | translate }}
+            </mat-label>
+            <mat-select formControlName="language" multiple (selectionChange)="onFilterBooks()">
+              <mat-option *ngFor="let language of getLanguages()" [value]="language">
+                {{ language }}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="filter__field">
+            <mat-label>
+              {{ 'bookList.bookFiltering.inputNumberOfPagesFrom' | translate }}
+            </mat-label>
+            <input matInput formControlName="numberOfPagesFrom" (keyup)="onFilterBooks()">
+        </mat-form-field>
+
+        <mat-form-field class="filter__field">
+            <mat-label>
+              {{ 'bookList.bookFiltering.inputNumberOfPagesTo' | translate }}
+            </mat-label>
+            <input matInput formControlName="numberOfPagesTo" (keyup)="onFilterBooks()">
+        </mat-form-field>
+    </div>
+</form>
+  

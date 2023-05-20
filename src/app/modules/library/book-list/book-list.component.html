@@ -1,8 +1,9 @@
 <button mat-button class="books__button" (click)="onCreateBook()">
     {{ 'bookList.bookCreating.create' | translate }}
 </button>
+<app-book-filter></app-book-filter>
 <div class="books">
-    <div *ngFor="let book of books">
+    <div *ngFor="let book of filteredBooks">
         <app-book-list-item [book]="book"></app-book-list-item>
       </div>
 </div>

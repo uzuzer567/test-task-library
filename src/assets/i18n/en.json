@@ -1,6 +1,11 @@
 {
   "title": "Library",
   "bookList": {
+    "bookFiltering": {
+      "notFound": "Books not found",
+      "inputNumberOfPagesFrom": "Input number of pages (from)",
+      "inputNumberOfPagesTo": "Input number of pages (to)"
+    },
     "bookCreating": {
       "title": "Book creating",
       "create": "Create book",

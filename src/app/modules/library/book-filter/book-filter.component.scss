@@ -1,0 +1,11 @@
+.filter {
+    &__form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    &__field {
+        margin: 0 10px;
+    }
+}

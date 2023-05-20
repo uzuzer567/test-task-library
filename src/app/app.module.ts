@@ -21,6 +21,7 @@ import { AuthorListComponent } from './modules/library/author-list/author-list.c
 import { AuthorListItemComponent } from './modules/library/author-list-item/author-list-item.component';
 import { NavigationComponent } from './shared/components/navigation/navigation.component';
 import { AuthorDialogComponent } from './modules/library/author-dialog/author-dialog.component';
+import { BookFilterComponent } from './modules/library/book-filter/book-filter.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { AuthorDialogComponent } from './modules/library/author-dialog/author-di
     AuthorListItemComponent,
     NavigationComponent,
     AuthorDialogComponent,
+    BookFilterComponent,
   ],
   imports: [
     BrowserModule,

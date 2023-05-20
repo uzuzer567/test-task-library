@@ -21,7 +21,7 @@ export class AuthorListItemComponent {
   ) {}
 
   editAuthor(): void {
-    this.libraryService.activeDialogMode$.next(Mode.Editing);
+    this.libraryService.activeAuthorDialogMode$.next(Mode.Editing);
     const dialogRef = this.dialog.open(AuthorDialogComponent, {
       data: this.author,
     });

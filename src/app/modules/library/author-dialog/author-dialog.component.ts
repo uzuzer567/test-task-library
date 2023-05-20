@@ -32,7 +32,7 @@ export class AuthorDialogComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.libraryService.activeDialogMode$.subscribe(dialogMode => {
+    this.libraryService.activeAuthorDialogMode$.subscribe(dialogMode => {
       this.activeMode = dialogMode;
       this.cdr.markForCheck();
     });

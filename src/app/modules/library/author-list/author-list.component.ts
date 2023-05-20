@@ -34,7 +34,7 @@ export class AuthorListComponent implements OnInit {
   }
 
   onCreateAuthor(): void {
-    this.libraryService.activeDialogMode$.next(Mode.Creating);
+    this.libraryService.activeAuthorDialogMode$.next(Mode.Creating);
     const dialogRef = this.dialog.open(AuthorDialogComponent);
     dialogRef.afterClosed().subscribe(result => {
       if (result) {

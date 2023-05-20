@@ -12,52 +12,52 @@ import { Language } from '../enums/language';
 export class LibraryApiService {
   books: Book[] = [
     {
-      title: 'Название',
+      title: 'Название 1',
       description: 'Описание',
       author: {
-        fullName: 'Полное имя',
+        fullName: 'Полное имя 2',
       },
-      numberOfPages: 100,
+      numberOfPages: 99,
       language: Language.Russian,
-      genre: 'Жанр',
+      genre: 'Жанр 1',
     },
     {
-      title: 'Название',
+      title: 'Название 2',
       description: 'Описание',
       author: {
-        fullName: 'Полное имя',
+        fullName: 'Полное имя 1',
       },
       numberOfPages: 100,
       language: Language.Russian,
-      genre: 'Жанр',
+      genre: 'Жанр 2',
     },
     {
-      title: 'Название',
+      title: 'Название 3',
       description: 'Описание',
       author: {
         fullName: 'Полное имя',
       },
-      numberOfPages: 100,
+      numberOfPages: 1,
       language: Language.Russian,
-      genre: 'Жанр',
+      genre: 'Жанр 1',
     },
     {
-      title: 'Название',
+      title: 'Название 4',
       description: 'Описание',
       author: {
         fullName: 'Полное имя',
       },
       numberOfPages: 100,
       language: Language.Russian,
-      genre: 'Жанр',
+      genre: 'Жанр 2',
     },
   ];
   authors: Author[] = [
     {
-      fullName: 'Автор',
+      fullName: 'Полное имя 1',
     },
     {
-      fullName: 'Автор',
+      fullName: 'Полное имя',
     },
   ];
   constructor(private http: HttpClient) {}
