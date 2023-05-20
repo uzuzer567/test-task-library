@@ -28,7 +28,6 @@ export class BookFilterComponent implements OnInit {
     numberOfPagesTo: new FormControl(''),
     genre: new FormControl(''),
   });
-  defaultValue = 'domain';
   authors!: Author[];
   @Input() books!: Book[];
   constructor(
@@ -50,7 +49,7 @@ export class BookFilterComponent implements OnInit {
   }
 
   getGenres(): string[] {
-    return this.books.map(book => book.genre);
+    return this.books?.map(book => book.genre);
   }
 
   onFilterBooks(): void {

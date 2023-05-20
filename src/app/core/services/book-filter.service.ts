@@ -24,7 +24,7 @@ export class BookFilterService {
       });
   }
 
-  private checkNumberOfPages(criterion: FilterCriterion, book: Book): boolean {
+  checkNumberOfPages(criterion: FilterCriterion, book: Book): boolean {
     if (criterion.field.includes('From')) {
       return book.numberOfPages >= +criterion.values;
     } else if (criterion.field.includes('To')) {
