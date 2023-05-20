@@ -47,7 +47,14 @@
             <mat-label>
               {{ 'bookList.bookCreating.inputGenre' | translate }}
             </mat-label>
-            <input matInput formControlName="genre" (keyup)="onFilterBooks()">
+            <mat-select formControlName="genre" [(ngModel)]="defaultValue" (selectionChange)="onFilterBooks()">
+                <mat-option value="">
+                    {{ 'bookList.bookFiltering.notSelected' | translate }}
+                </mat-option>
+                <mat-option *ngFor="let genre of getGenres()" [value]="genre">
+                  {{ genre }}
+                </mat-option>
+              </mat-select>
         </mat-form-field>
     </div>
 </form>

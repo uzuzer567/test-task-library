@@ -4,6 +4,7 @@
     "isEmpty": "List of books is empty",
     "bookFiltering": {
       "notFound": "Books not found",
+      "notSelected": "Not selected",
       "inputNumberOfPagesFrom": "Input number of pages (from)",
       "inputNumberOfPagesTo": "Input number of pages (to)"
     },

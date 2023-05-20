@@ -3,9 +3,11 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   OnInit,
+  Input,
 } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Language } from '../../../core/enums/language';
+import { Book } from '../../../core/interfaces/book';
 import { Author } from '../../../core/interfaces/author';
 import { BookFilterService } from '../../../core/services/book-filter.service';
 import { LibraryService } from '../../../core/services/library.service';
@@ -26,7 +28,9 @@ export class BookFilterComponent implements OnInit {
     numberOfPagesTo: new FormControl(''),
     genre: new FormControl(''),
   });
+  defaultValue = 'domain';
   authors!: Author[];
+  @Input() books!: Book[];
   constructor(
     private bookFilterService: BookFilterService,
     private libraryService: LibraryService,
@@ -41,8 +45,12 @@ export class BookFilterComponent implements OnInit {
     });
   }
 
-  getLanguages() {
+  getLanguages(): Language[] {
     return Object.values(Language);
+  }
+
+  getGenres(): string[] {
+    return this.books.map(book => book.genre);
   }
 
   onFilterBooks(): void {

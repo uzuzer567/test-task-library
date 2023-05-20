@@ -4,6 +4,7 @@
     "isEmpty": "Список книг пуст",
     "bookFiltering": {
       "notFound": "Книги не найдены",
+      "notSelected": "Не выбрано",
       "inputNumberOfPagesFrom": "Введите число страниц в книге (от)",
       "inputNumberOfPagesTo": "Введите число страниц в книге (до)"
     },
