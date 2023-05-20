@@ -42,6 +42,13 @@
             </mat-label>
             <input matInput formControlName="numberOfPagesTo" (keyup)="onFilterBooks()">
         </mat-form-field>
+
+        <mat-form-field class="filter__field">
+            <mat-label>
+              {{ 'bookList.bookCreating.inputGenre' | translate }}
+            </mat-label>
+            <input matInput formControlName="genre" (keyup)="onFilterBooks()">
+        </mat-form-field>
     </div>
 </form>
   

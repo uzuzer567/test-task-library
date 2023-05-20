@@ -24,6 +24,7 @@ export class BookFilterComponent implements OnInit {
     language: new FormControl(''),
     numberOfPagesFrom: new FormControl(''),
     numberOfPagesTo: new FormControl(''),
+    genre: new FormControl(''),
   });
   authors!: Author[];
   constructor(
