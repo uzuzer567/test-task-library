@@ -4,7 +4,7 @@ import { Author } from '../../../core/interfaces/author';
 import { AuthorDialogComponent } from '../author-dialog/author-dialog.component';
 import { LibraryService } from '../../../core/services/library.service';
 import { LibraryApiService } from '../../../core/services/library-api.service';
-import { Mode } from '../../../core/enums/mode';
+import { AuthorDialogMode } from '../../../core/enums/author-dialog-mode';
 
 @Component({
   selector: 'app-author-list-item',
@@ -21,9 +21,10 @@ export class AuthorListItemComponent {
   ) {}
 
   editAuthor(): void {
-    this.libraryService.activeAuthorDialogMode$.next(Mode.Editing);
+    this.libraryService.activeAuthorDialogMode$.next(AuthorDialogMode.Editing);
     const dialogRef = this.dialog.open(AuthorDialogComponent, {
       data: this.author,
+      width: '60%',
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {

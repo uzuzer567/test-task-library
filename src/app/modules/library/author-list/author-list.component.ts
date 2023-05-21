@@ -8,7 +8,7 @@ import {
 import { Subject, takeUntil, switchMap, startWith, combineLatest } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { Author } from '../../../core/interfaces/author';
-import { Mode } from '../../../core//enums/mode';
+import { AuthorDialogMode } from '../../../core/enums/author-dialog-mode';
 import { LibraryService } from '../../../core/services/library.service';
 import { LibraryApiService } from '../../../core/services/library-api.service';
 import { AuthorDialogComponent } from '../author-dialog/author-dialog.component';
@@ -49,8 +49,8 @@ export class AuthorListComponent implements OnInit, OnDestroy {
   }
 
   onCreateAuthor(): void {
-    this.libraryService.activeAuthorDialogMode$.next(Mode.Creating);
-    const dialogRef = this.dialog.open(AuthorDialogComponent);
+    this.libraryService.activeAuthorDialogMode$.next(AuthorDialogMode.Creating);
+    const dialogRef = this.dialog.open(AuthorDialogComponent, { width: '60%' });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.libraryApiService

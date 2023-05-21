@@ -29,19 +29,29 @@
             </mat-select>
         </mat-form-field>
 
-        <mat-form-field class="filter__field">
+        <div>
+          <mat-form-field class="filter__field">
             <mat-label>
               {{ 'bookList.bookFiltering.inputNumberOfPagesFrom' | translate }}
             </mat-label>
             <input matInput formControlName="numberOfPagesFrom" (keyup)="onFilterBooks()">
-        </mat-form-field>
+          </mat-form-field>
+          <div *ngIf="!isCorrectFromNumber" class="filter__error-message">
+            {{ 'bookList.bookFiltering.notValidNumber' | translate }}
+          </div>
+        </div>
 
-        <mat-form-field class="filter__field">
+        <div>
+          <mat-form-field class="filter__field">
             <mat-label>
               {{ 'bookList.bookFiltering.inputNumberOfPagesTo' | translate }}
             </mat-label>
             <input matInput formControlName="numberOfPagesTo" (keyup)="onFilterBooks()">
-        </mat-form-field>
+          </mat-form-field>
+          <div *ngIf="!isCorrectToNumber" class="filter__error-message">
+            {{ 'bookList.bookFiltering.notValidNumber' | translate }}
+          </div>
+        </div>
 
         <mat-form-field class="filter__field">
             <mat-label>

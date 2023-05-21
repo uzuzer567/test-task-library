@@ -4,6 +4,8 @@ import {
   ChangeDetectorRef,
   OnInit,
   Input,
+  Output,
+  EventEmitter,
 } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Language } from '../../../core/enums/language';
@@ -24,10 +26,13 @@ export class BookFilterComponent implements OnInit {
     title: new FormControl(''),
     author: new FormControl(''),
     language: new FormControl(''),
-    numberOfPagesFrom: new FormControl(''),
-    numberOfPagesTo: new FormControl(''),
+    numberOfPagesFrom: new FormControl('', [Validators.pattern('^[0-9]*$')]),
+    numberOfPagesTo: new FormControl('', [Validators.pattern('^[0-9]*$')]),
     genre: new FormControl(''),
   });
+  isCorrectFromNumber = true;
+  isCorrectToNumber = true;
+  @Output() filterChanged = new EventEmitter<boolean>();
   authors!: Author[];
   @Input() books!: Book[];
   constructor(
@@ -52,7 +57,30 @@ export class BookFilterComponent implements OnInit {
     return this.books?.map(book => book.genre);
   }
 
+  checkNumberOfPagesFrom(): void {
+    const numberOfPagesFrom = this.form.get('numberOfPagesFrom')?.value;
+    if (numberOfPagesFrom.match(/^[0-9]*$/)) {
+      this.isCorrectFromNumber = true;
+    } else {
+      this.isCorrectFromNumber = false;
+    }
+  }
+
+  checkNumberOfPagesTo(): void {
+    const numberOfPagesTo = this.form.get('numberOfPagesTo')?.value;
+    if (numberOfPagesTo.match(/^[0-9]*$/)) {
+      this.isCorrectToNumber = true;
+    } else {
+      this.isCorrectToNumber = false;
+    }
+  }
+
   onFilterBooks(): void {
+    this.checkNumberOfPagesTo();
+    this.checkNumberOfPagesFrom();
+    if (!this.isCorrectToNumber || !this.isCorrectFromNumber) {
+      this.filterChanged.emit(false);
+    }
     this.libraryService.activeBookFilter$.next(
       this.bookFilterService.getFilterCriteria(this.form.value)
     );

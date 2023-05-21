@@ -15,6 +15,11 @@
                 {{ data?.fullName }}
             </mat-label>
         </div>
+        <div class="author-card__error-message">
+            <div *ngIf="!isValidForm">
+                {{ 'bookList.bookCreating.notValidForm' | translate }}
+            </div>
+        </div>
     </form>
 </div>
 <div mat-dialog-actions>

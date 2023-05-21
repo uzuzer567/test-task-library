@@ -1,7 +1,7 @@
 <button mat-button class="books__button" (click)="onCreateBook()">
     {{ 'bookList.bookCreating.create' | translate }}
 </button>
-<app-book-filter [books]="books"></app-book-filter>
+<app-book-filter [books]="books" (filterChanged)="isCorrectFilter = $event"></app-book-filter>
 <div *ngIf="!isLoading; else loader">
     <div class="books" *ngIf="books?.length">
         <div *ngFor="let book of filteredBooks">
@@ -14,7 +14,11 @@
     {{ 'bookList.isEmpty' | translate }}
 </div>
 
-<div class="books__message" *ngIf="books?.length && !filteredBooks?.length">
+<div class="books__message" *ngIf="!isCorrectFilter && !filteredBooks?.length">
+    {{ 'bookList.bookFiltering.incorrectFilter' | translate }}
+</div>
+
+<div class="books__message" *ngIf="books?.length && !filteredBooks?.length && isCorrectFilter">
     {{ 'bookList.bookFiltering.notFound' | translate }}
 </div>
 

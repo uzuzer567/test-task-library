@@ -11,7 +11,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { LibraryService } from '../../../core/services/library.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Author } from '../../../core/interfaces/author';
-import { Mode } from '../../../core/enums/mode';
+import { AuthorDialogMode } from '../../../core/enums/author-dialog-mode';
 
 @Component({
   selector: 'app-author-dialog',
@@ -20,12 +20,13 @@ import { Mode } from '../../../core/enums/mode';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AuthorDialogComponent implements OnInit, OnDestroy {
-  activeMode!: Mode | null;
-  Mode = Mode;
+  activeMode!: AuthorDialogMode | null;
+  Mode = AuthorDialogMode;
   author!: Author | null;
   form = new FormGroup({
     fullName: new FormControl(''),
   });
+  isValidForm = true;
   onDestroy$ = new Subject<void>();
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: Author,
@@ -44,7 +45,12 @@ export class AuthorDialogComponent implements OnInit, OnDestroy {
   }
 
   onChangeAuthorList(): void {
-    this.dialogRef.close({ data: this.form.value });
+    if (this.form.valid) {
+      this.isValidForm = true;
+      this.dialogRef.close({ data: this.form.value });
+    } else {
+      this.isValidForm = false;
+    }
   }
 
   onCancel(): void {

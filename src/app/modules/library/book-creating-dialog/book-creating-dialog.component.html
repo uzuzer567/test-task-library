@@ -33,11 +33,23 @@
                 </mat-select>
             </mat-form-field>
     
+            <div>
+              <mat-form-field class="creating-card__field">
+                  <mat-label>
+                    {{ 'bookList.bookCreating.inputNumberOfPages' | translate }}
+                  </mat-label>
+                  <input matInput formControlName="numberOfPages" required (keyup)="checkNumberOfPages()">
+              </mat-form-field>
+              <div *ngIf="!isCorrectNumber" class="creating-card__error-message">
+                {{ 'bookList.bookFiltering.notValidNumber' | translate }}
+              </div>
+            </div>
+
             <mat-form-field class="creating-card__field">
-                <mat-label>
-                  {{ 'bookList.bookCreating.inputNumberOfPages' | translate }}
-                </mat-label>
-                <input matInput formControlName="numberOfPages" required>
+              <mat-label>
+                {{ 'bookList.bookCreating.inputGenre' | translate }}
+              </mat-label>
+              <input matInput formControlName="genre" required>
             </mat-form-field>
     
             <mat-form-field class="creating-card__field description">
@@ -46,6 +58,11 @@
                 </mat-label>
                 <textarea matInput formControlName="description" required></textarea>
             </mat-form-field>
+        </div>
+        <div class="creating-card__error-message">
+          <div *ngIf="!isValidForm">
+            {{ 'bookList.bookCreating.notValidForm' | translate }}
+          </div>
         </div>
     </form>
 </div>

@@ -12,4 +12,13 @@
             font-weight: 400;
         }
     }
+
+    &__error-message {
+        height: 40px;
+        color: red;
+        text-align: center;
+        div {
+            padding-top: 17px;
+        }
+    }
 }

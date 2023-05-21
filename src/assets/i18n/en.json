@@ -3,12 +3,15 @@
   "bookList": {
     "isEmpty": "List of books is empty",
     "bookFiltering": {
+      "notValidNumber": "Number is not valid",
+      "incorrectFilter": "Filtering options are incorrect",
       "notFound": "Books not found",
       "notSelected": "Not selected",
       "inputNumberOfPagesFrom": "Input number of pages (from)",
       "inputNumberOfPagesTo": "Input number of pages (to)"
     },
     "bookCreating": {
+      "notValidForm": "Not all required fields are filled",
       "title": "Book creating",
       "create": "Create book",
       "inputTitle": "Input book title",

@@ -22,6 +22,7 @@ import { FilterCriterion } from '../../../core/interfaces/filter-criterion';
 })
 export class BookListComponent implements OnInit, OnDestroy {
   isLoading = false;
+  isCorrectFilter = true;
   books!: Book[];
   filteredBooks!: Book[];
   reload$ = new Subject<void>();
@@ -69,7 +70,7 @@ export class BookListComponent implements OnInit, OnDestroy {
     });
   }
 
-  filterBooks(criteria: FilterCriterion[]) {
+  filterBooks(criteria: FilterCriterion[]): void {
     this.filteredBooks = this.bookFilterService.filterBooks(
       this.books,
       criteria

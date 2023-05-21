@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { Book } from '../interfaces/book';
-import { Mode } from '../enums/mode';
+import { AuthorDialogMode } from '../enums/author-dialog-mode';
 import { FilterCriterion } from '../interfaces/filter-criterion';
 
 @Injectable({
@@ -12,5 +12,5 @@ export class LibraryService {
   activeBookFilter$ = new BehaviorSubject<FilterCriterion[]>([]);
 
   editedAuthor$ = new BehaviorSubject<any>({});
-  activeAuthorDialogMode$ = new BehaviorSubject<Mode | null>(null);
+  activeAuthorDialogMode$ = new BehaviorSubject<AuthorDialogMode | null>(null);
 }

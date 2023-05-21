@@ -8,4 +8,9 @@
     &__field {
         margin: 0 10px;
     }
+
+    &__error-message {
+        color: red;
+        text-align: center;
+    }
 }

@@ -3,12 +3,15 @@
   "bookList": {
     "isEmpty": "Список книг пуст",
     "bookFiltering": {
+      "notValidNumber": "Невалидное число",
       "notFound": "Книги не найдены",
+      "incorrectFilter": "Параметры фильтрации некорректны",
       "notSelected": "Не выбрано",
       "inputNumberOfPagesFrom": "Введите число страниц в книге (от)",
       "inputNumberOfPagesTo": "Введите число страниц в книге (до)"
     },
     "bookCreating": {
+      "notValidForm": "Не все обязательные для заполнения поля заполнены",
       "title": "Создание книги",
       "create": "Создать книгу",
       "inputTitle": "Введите название книги",

@@ -4,10 +4,11 @@
     justify-content: space-around;
 
     &__button {
-        width: 100%;
+        width: 15vw;
         font-size: 20px;
         padding: 5px 0;
-        margin-bottom: 15px;
+        display: block;
+        margin: 0 auto 15px;
     }
 
     &__message {

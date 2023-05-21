@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Author } from '../../../core/interfaces/author';
 import { Language } from '../../../core/enums/language';
@@ -16,9 +16,12 @@ export class BookCreatingDialogComponent implements OnInit {
     title: new FormControl(''),
     author: new FormControl(''),
     language: new FormControl(''),
-    numberOfPages: new FormControl(''),
+    numberOfPages: new FormControl('', [Validators.pattern('^[0-9]*$')]),
     description: new FormControl(''),
+    genre: new FormControl(''),
   });
+  isCorrectNumber = true;
+  isValidForm = true;
   authors!: Author[];
   constructor(
     public dialogRef: MatDialogRef<BookCreatingDialogComponent>,
@@ -35,8 +38,24 @@ export class BookCreatingDialogComponent implements OnInit {
     return Object.values(Language);
   }
 
+  checkNumberOfPages(): void {
+    const numberOfPages = this.form.get('numberOfPages')?.value;
+    if (numberOfPages.match(/^[0-9]*$/)) {
+      this.isCorrectNumber = true;
+    } else {
+      this.isCorrectNumber = false;
+    }
+  }
+
   onCreateBook(): void {
-    this.dialogRef.close({ data: this.form.value });
+    if (this.form.valid) {
+      this.isValidForm = true;
+      const formValue = this.form.value;
+      formValue.author = { fullName: this.form.get('author')?.value };
+      this.dialogRef.close({ data: formValue });
+    } else {
+      this.isValidForm = false;
+    }
   }
 
   onCancel(): void {

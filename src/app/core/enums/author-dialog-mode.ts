@@ -1,4 +1,4 @@
-export enum Mode {
+export enum AuthorDialogMode {
   'Creating' = 'Creating',
   'Editing' = 'Editing',
 }

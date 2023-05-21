@@ -1,10 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 import { Language } from '../enums/language';
+import { Book } from '../interfaces/book';
+import { FilterCriterion } from '../interfaces/filter-criterion';
 import { BookFilterService } from './book-filter.service';
 
 describe('BookFilterService', () => {
   let service: BookFilterService;
-  const fakeBooks = [
+  const fakeBooks: Book[] = [
     {
       id: 1,
       title: 'Название 1',
@@ -18,13 +20,13 @@ describe('BookFilterService', () => {
       genre: 'Жанр 1',
     },
   ];
-  const fakeCriteria = [
+  const fakeCriteria: FilterCriterion[] = [
     { field: 'numberOfPagesFrom', values: ['99'] },
     { field: 'numberOfPagesTo', values: ['101'] },
     { field: 'title', values: ['Название'] },
     { field: 'author', values: ['Полное имя 1'] },
   ];
-  const fakeGeneratedCriteria = [
+  const fakeGeneratedCriteria: FilterCriterion[] = [
     { field: 'title', values: ['Название 2'] },
     { field: 'author', values: ['Полное имя 2'] },
     { field: 'numberOfPagesFrom', values: ['98'] },
