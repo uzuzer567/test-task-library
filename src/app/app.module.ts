@@ -23,6 +23,7 @@ import { NavigationComponent } from './shared/components/navigation/navigation.c
 import { AuthorDialogComponent } from './modules/library/author-dialog/author-dialog.component';
 import { BookFilterComponent } from './modules/library/book-filter/book-filter.component';
 import { LoaderComponent } from './shared/components/loader/loader.component';
+import { TitleCasePipe } from './core/pipes/title-case.pipe';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { LoaderComponent } from './shared/components/loader/loader.component';
     AuthorDialogComponent,
     BookFilterComponent,
     LoaderComponent,
+    TitleCasePipe,
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 .book {
+    width: 15vw;
     padding: 10px;
     margin: 0 10px 15px;
     border-radius: 10px;
@@ -7,7 +8,7 @@
     cursor: pointer;
 
     &__info-item {
-        max-width: 250px;
+        max-width: 15vw;
         font-size: 20px;
         font-weight: 300;
         span {

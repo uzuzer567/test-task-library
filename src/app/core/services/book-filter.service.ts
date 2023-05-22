@@ -48,7 +48,8 @@ export class BookFilterService {
             if (typeof bookProperty !== 'object') {
               return bookProperty
                 .toString()
-                .includes(criterion.values.toString());
+                .toLowerCase()
+                .includes(criterion.values.toString().toLowerCase());
             } else {
               return criterion.values.some(value =>
                 Object.values(bookProperty).includes(value)

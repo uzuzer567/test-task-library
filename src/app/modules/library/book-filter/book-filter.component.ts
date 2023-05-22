@@ -54,7 +54,10 @@ export class BookFilterComponent implements OnInit {
   }
 
   getGenres(): string[] {
-    return this.books?.map(book => book.genre);
+    const genres = this.books?.map(
+      book => book.genre[0].toUpperCase() + book.genre.slice(1)
+    );
+    return Array.from(new Set(genres));
   }
 
   checkNumberOfPagesFrom(): void {

@@ -4,13 +4,13 @@
           <span>
               {{ 'bookCard.title' | translate }}:
           </span>
-          {{ book?.title }}
+          {{ book?.title | titleCase }}
         </div>
         <div class="book__info-item">
           <span>
               {{ 'bookCard.author' | translate }}:
           </span>
-          {{ book?.author?.fullName }}
+          {{ book?.author?.fullName | titleCase }}
         </div>
         <div class="book__info-item">
           <span>
@@ -22,13 +22,13 @@
           <span>
               {{ 'bookCard.language' | translate }}:
           </span>
-          {{ book?.language }}
+          {{ book?.language | titleCase }}
         </div>
         <div class="book__info-item">
           <span>
               {{ 'bookCard.genre' | translate }}:
           </span>
-          {{ book?.genre }}
+          {{ book?.genre | titleCase }}
         </div>
     </div>
 </div>
