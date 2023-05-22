@@ -6,6 +6,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { Book } from '../../../core/interfaces/book';
 import { Language } from '../../../core/enums/language';
 import { LibraryService } from '../../../core/services/library.service';
+import { TitleCasePipe } from '../../../core/pipes/title-case.pipe';
 import { BookListItemComponent } from './book-list-item.component';
 
 describe('BookListItemComponent', () => {
@@ -34,7 +35,7 @@ describe('BookListItemComponent', () => {
 
   beforeEach(async () => {
     return await TestBed.configureTestingModule({
-      declarations: [BookListItemComponent],
+      declarations: [BookListItemComponent, TitleCasePipe],
       imports: [HttpClientTestingModule, TranslateModule.forRoot()],
       providers: [
         { provide: MatDialog, useValue: {} },
